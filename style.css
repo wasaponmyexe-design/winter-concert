@@ -1,0 +1,59 @@
+body{
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(#0a1f44,#163d7a,#1e5bb8);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* หิมะตก */
+.snowflake{
+  position: fixed;
+  top:-10px;
+  color:white;
+  font-size:12px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall{
+  to{
+    transform: translateY(100vh);
+  }
+}
+
+.box{
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  margin:60px auto;
+  width:320px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(255,255,255,0.2);
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#4fc3f7;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#81d4fa;
+}
+
+.ticket{
+  background:white;
+  color:black;
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+}
+
+.bank-logo{
+  width:120px;
+}

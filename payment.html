@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ชำระเงิน</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+  <h2>💳 ชำระเงิน</h2>
+
+  <img src="https://i.pinimg.com/736x/cc/bd/c5/ccbdc5e48a21840cb43f386224e01377.jpg"
+       class="bank-logo">
+
+  <p><b>ธนาคาร:</b> กสิกรไทย</p>
+  <p><b>เลขบัญชี:</b> 124-3-43517-6</p>
+  <p><b>ชื่อบัญชี:</b> WASAPON TENGCHAI</p>
+
+  <p>จำนวนเงิน: <b>1,200 บาท</b></p>
+
+  <hr>
+
+  <p><b>อัปโหลดสลิปการโอน</b></p>
+
+  <input type="file" id="slipUpload" accept="image/*">
+
+  <br><br>
+
+  <img id="preview" style="width:100%; display:none; border-radius:10px;">
+
+  <br>
+
+  <button onclick="pay()">ยืนยันการชำระเงิน</button>
+</div>
+
+<script>
+// แสดงตัวอย่างสลิป
+document.getElementById("slipUpload").addEventListener("change", function(){
+  const file = this.files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = function(e){
+      const preview = document.getElementById("preview");
+      preview.src = e.target.result;
+      preview.style.display = "block";
+    }
+    reader.readAsDataURL(file);
+  }
+});
+
+// ยืนยันการชำระเงิน
+function pay(){
+
+  const slip = document.getElementById("slipUpload").files.length;
+
+  if(slip === 0){
+    alert("กรุณาอัปโหลดสลิปก่อน");
+    return;
+  }
+
+  // คำนวณวันงาน +2 วัน
+  let today = new Date();
+  today.setDate(today.getDate() + 2);
+  localStorage.setItem("eventDate", today.toDateString());
+
+  window.location = "success.html";
+}
+
+// เอฟเฟกต์หิมะ
+for(let i=0;i<50;i++){
+  let snow = document.createElement("div");
+  snow.className="snowflake";
+  snow.innerHTML="❄";
+  snow.style.left=Math.random()*100+"vw";
+  snow.style.animationDuration=(3+Math.random()*5)+"s";
+  snow.style.opacity=Math.random();
+  document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>THE WINTER 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+  <h1>❄️ THE WINTER 2026</h1>
+
+  <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a"
+       style="width:100%; border-radius:10px;">
+
+  <p>งานดนตรีฤดูหนาวสุดยิ่งใหญ่</p>
+  <p>ราคา: 1,200 บาท</p>
+
+  <button onclick="buyTicket()">ซื้อบัตร</button>
+</div>
+
+<script>
+function buyTicket(){
+  window.location = "payment.html";
+}
+
+// เอฟเฟกต์หิมะ
+for(let i=0;i<50;i++){
+  let snow = document.createElement("div");
+  snow.className="snowflake";
+  snow.innerHTML="❄";
+  snow.style.left=Math.random()*100+"vw";
+  snow.style.animationDuration=(3+Math.random()*5)+"s";
+  snow.style.opacity=Math.random();
+  document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
